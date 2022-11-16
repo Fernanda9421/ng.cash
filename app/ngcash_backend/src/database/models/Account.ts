@@ -1,9 +1,9 @@
-import { Model, INTEGER, DECIMAL } from 'sequelize';
+import { Model, INTEGER, STRING } from 'sequelize';
 import db from '.';
 
 class Account extends Model {
   declare id: number;
-  declare balance: number;
+  declare balance: string;
 }
 
 Account.init({
@@ -14,7 +14,7 @@ Account.init({
     autoIncrement: true,
   },
   balance: {
-    type: DECIMAL(10, 2),
+    type: STRING,
     allowNull: false,
   },
 }, {
