@@ -32,6 +32,7 @@
       2,
       "single"
     ],
+    "class-methods-use-this": "off",
     "max-len": ["error", { "code": 120 }],
     "implicit-arrow-linebreak": "off",
     "consistent-return": "off",
