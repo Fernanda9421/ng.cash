@@ -1,35 +1,41 @@
-import md5 = require('md5');
+import { ILoggedUser } from '../interfaces/ILoggedUser';
 import User from '../database/models/User';
-import * as AccountService from './account.service';
-import { ILogin } from '../interfaces/IRegisterUser';
+import HttpException from '../exceptions/HttpException';
+import { IUser } from '../interfaces/INewUser';
+import { encryptPassword } from '../utils/encryptPassword';
+import { tokenGenerate } from '../utils/tokenGenerate';
+import { AccountService } from './account.service';
 
-const MESSAGES = {
-  USER_NOT_FOUND: 'User not found',
-  USER_EXISTS: 'User already exists',
-};
+export class UserService {
+  private accountService: AccountService;
 
-export async function getByUsername(username:string) {
-  const user = await User.findOne({ where: { username } });
-
-  if (!user) {
-    return { status: 404, error: { message: MESSAGES.USER_NOT_FOUND } };
-  }
-  return { status: 200, user };
-}
-
-export async function registerUser(user:ILogin) {
-  const userExists = await getByUsername(user.username);
-
-  if (userExists.user) {
-    return { status: 400, error: { message: MESSAGES.USER_EXISTS } };
+  constructor() {
+    this.accountService = new AccountService();
   }
 
-  const newAccount = await AccountService.createAccount();
-  const newUser = await User.create({
-    username: user.username,
-    password: md5(user.password),
-    accountId: newAccount.account.dataValues.id,
-  });
+  public async getByUsername(username:string):Promise<User | null> {
+    const user = await User.findOne({ where: { username } });
 
-  return { status: 200, newUser };
+    if (!user) return null;
+    return user;
+  }
+
+  public async registerUser(user:IUser):Promise<ILoggedUser | void> {
+    const userExists = await this.getByUsername(user.username);
+
+    if (userExists) throw new HttpException(400, 'User already exists');
+
+    const newAccount = await this.accountService.createAccount();
+    const newUser = await User.create({
+      username: user.username,
+      password: encryptPassword(user.password),
+      accountId: newAccount.dataValues.id,
+    });
+    const token = tokenGenerate(newUser.username, newUser.id);
+
+    return {
+      newUser,
+      token,
+    };
+  }
 }

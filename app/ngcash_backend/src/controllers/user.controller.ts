@@ -1,18 +1,23 @@
 import { Request, Response, NextFunction } from 'express';
-import HttpException from '../exceptions/HttpException';
-import { ILogin } from '../interfaces/IRegisterUser';
-import * as userService from '../services/user.service';
+import { IUser } from '../interfaces/INewUser';
+import { ILoggedUser } from '../interfaces/ILoggedUser';
+import { UserService } from '../services/user.service';
 
-export async function create(req:Request, res:Response, next:NextFunction) {
-  try {
-    const user = req.body as ILogin;
-    const { status, newUser, error } = await userService.registerUser(user);
+export class UserController {
+  private service: UserService;
 
-    return error
-      ? res.status(status).json({ error })
-      : res.status(status).json(newUser);
-  } catch (error) {
-    console.log(error);
-    next(new HttpException(500, 'Internal server error!'));
+  constructor() {
+    this.service = new UserService();
+  }
+
+  public async create(req:Request, res:Response, next:NextFunction):Promise<Response | void> {
+    try {
+      const { username, password }: IUser = req.body;
+      const newUser = await this.service.registerUser({ username, password }) as ILoggedUser;
+
+      return res.status(201).json({ token: newUser.token });
+    } catch (error) {
+      next(error);
+    }
   }
 }
