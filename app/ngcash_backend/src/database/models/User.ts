@@ -20,7 +20,7 @@ User.init({
     allowNull: false,
   },
   password: {
-    type: STRING(30),
+    type: STRING(100),
     allowNull: false,
   },
   accountId: {

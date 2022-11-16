@@ -15,11 +15,13 @@ module.exports = {
       },
       password: {
         allowNull: false,
-        type: Sequelize.STRING(30),
+        type: Sequelize.STRING(100),
       },
       accountId: {
         allowNull: false,
         type: Sequelize.INTEGER,
+        onUpdate: 'CASCADE',
+        onDelete: 'CASCADE',
         references: {
           model: 'accounts',
           key: 'id',
