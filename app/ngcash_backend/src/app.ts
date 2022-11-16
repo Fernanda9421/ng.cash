@@ -2,6 +2,7 @@ import express = require('express');
 import cors = require('cors');
 import userRouter from './routes/user.routes';
 import handleError from './middlewares/error.middleware';
+import loginRouter from './routes/login.routes';
 
 class App {
   public app: express.Express;
@@ -16,6 +17,7 @@ class App {
     this.app.use(express.json());
 
     this.app.use('/register', userRouter);
+    this.app.use('/login', loginRouter);
 
     this.app.use(handleError);
   }
