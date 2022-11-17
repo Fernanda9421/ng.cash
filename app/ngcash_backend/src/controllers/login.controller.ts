@@ -19,6 +19,7 @@ export class LoginController {
         user: {
           id: user.newUser.id,
           username: user.newUser.username,
+          accountId: user.newUser.accountId,
         },
         token: user.token,
       });
