@@ -5,5 +5,5 @@ export const secret: Secret = process.env.SECRET || 'passwordsecret';
 
 export const options:SignOptions = {
   algorithm: 'HS256',
-  expiresIn: '1d',
+  expiresIn: '24h',
 };
