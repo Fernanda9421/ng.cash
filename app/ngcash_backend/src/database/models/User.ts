@@ -6,6 +6,7 @@ class User extends Model {
   declare id: number;
   declare username: string;
   declare password: string;
+  declare accountId: number;
 }
 
 User.init({
