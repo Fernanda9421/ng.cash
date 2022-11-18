@@ -15,14 +15,16 @@ export class LoginController {
       const { username, password }: IUser = req.body;
       const user = await this.service.login({ username, password }) as ILoggedUser;
 
-      return res.status(201).json({
+      const result = {
         user: {
           id: user.newUser.id,
           username: user.newUser.username,
           accountId: user.newUser.accountId,
         },
         token: user.token,
-      });
+      };
+
+      return res.status(201).json(result);
     } catch (error) {
       next(error);
     }

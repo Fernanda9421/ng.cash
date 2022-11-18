@@ -13,9 +13,9 @@ export class UserController {
   public async create(req:Request, res:Response, next:NextFunction):Promise<Response | void> {
     try {
       const { username, password }: IUser = req.body;
-      const newUser = await this.service.registerUser({ username, password }) as ILoggedUser;
+      const { token } = await this.service.registerUser({ username, password }) as ILoggedUser;
 
-      return res.status(201).json({ token: newUser.token });
+      return res.status(201).json({ token });
     } catch (error) {
       next(error);
     }

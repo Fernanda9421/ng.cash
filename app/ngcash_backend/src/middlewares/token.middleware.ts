@@ -3,7 +3,7 @@ import { verify } from 'jsonwebtoken';
 import { secret } from '../database/config/jwt.config';
 import HttpException from '../exceptions/HttpException';
 
-export function validateToken(req:Request, _res:Response, next:NextFunction) {
+export function validateToken(req:Request, _res:Response, next:NextFunction):void {
   const { authorization: token } = req.headers;
 
   if (!token || token === '') throw new HttpException(401, 'Token not found');

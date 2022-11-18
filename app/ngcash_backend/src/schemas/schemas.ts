@@ -1,4 +1,6 @@
-const errors = {
+import { IErrors } from '../interfaces/IErrors';
+
+const errors: IErrors = {
   invalidUsername: 'Username must be at least 3 characters long!',
   invalidPassword: 'Password must be at least 8 characters long, a number and an uppercase letter!',
 };
