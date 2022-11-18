@@ -3,8 +3,9 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
+    "prestart": "npm run build && npm run db:reset",
     "db:reset": "npx -y tsc && npx sequelize-cli db:drop && npx sequelize-cli db:create && npx sequelize-cli db:migrate",
-    "start": "npm run build && node ./dist/index.js",
+    "start": "node .",
     "dev": "nodemon --watch \"./src/**\" ./src/server.ts",
     "build": "tsc",
     "lint": "eslint ./src --ext .ts"
