@@ -15,11 +15,14 @@ module.exports = {
       },
       createdAt: {
         allowNull: false,
-        type: Sequelize.DATE,
+        type: Sequelize.DATEONLY,
+        field: "created_at"
       },
       debitedAccountId: {
         allowNull: false,
         type: Sequelize.INTEGER,
+        onUpdate: "CASCADE",
+        onDelete: "CASCADE",
         references: {
           model: 'accounts',
           key: 'id',
@@ -29,6 +32,8 @@ module.exports = {
       creditedAccountId: {
         allowNull: false,
         type: Sequelize.INTEGER,
+        onUpdate: "CASCADE",
+        onDelete: "CASCADE",
         references: {
           model: 'accounts',
           key: 'id',

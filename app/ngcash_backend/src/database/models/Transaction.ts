@@ -1,10 +1,13 @@
-import { Model, INTEGER, DATE, DECIMAL } from 'sequelize';
+import { Model, INTEGER, DATEONLY, DECIMAL } from 'sequelize';
 import db from '.';
 import Account from './Account';
 
 class Transaction extends Model {
   declare id: number;
   declare value: number;
+  declare debitedAccountId: number;
+  declare creditedAccountId: number;
+  declare createdAt: string;
 }
 
 Transaction.init({
@@ -27,18 +30,18 @@ Transaction.init({
     allowNull: false,
   },
   createdAt: {
-    type: DATE,
+    type: DATEONLY,
     allowNull: false,
   },
 }, {
   sequelize: db,
   modelName: 'transactions',
-  timestamps: true,
-  updatedAt: false,
+  timestamps: false,
   underscored: true,
 });
 
-Transaction.belongsTo(Account);
-Account.hasMany(Transaction);
+Transaction.belongsTo(Account, { foreignKey: 'id', as: 'debited' });
+Transaction.belongsTo(Account, { foreignKey: 'id', as: 'credited' });
+Account.hasMany(Transaction, { foreignKey: 'id', as: 'accounts' });
 
 export default Transaction;

@@ -35,7 +35,7 @@ User.init({
   underscored: true,
 });
 
-Account.hasOne(User);
-User.belongsTo(Account);
+User.belongsTo(Account, { foreignKey: 'id' });
+Account.hasOne(User, { foreignKey: 'id' });
 
 export default User;
