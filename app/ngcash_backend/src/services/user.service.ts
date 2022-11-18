@@ -1,6 +1,5 @@
 import { ILoggedUser } from '../interfaces/ILoggedUser';
 import User from '../database/models/User';
-import HttpException from '../exceptions/HttpException';
 import { IUser } from '../interfaces/INewUser';
 import { encryptPassword } from '../utils/encryptPassword';
 import { tokenGenerate } from '../utils/tokenGenerate';
@@ -19,57 +18,47 @@ export class UserService {
   public async getByUsername(username:string):Promise<User | null> {
     const user = await User.findOne({
       where: { username },
-      include: [
-        {
-          model: Account,
-        },
-      ],
+      include: [{ model: Account }],
     });
 
-    if (!user) return null;
     return user;
   }
 
   public async registerUser(user:IUser):Promise<ILoggedUser | void> {
     const userExists = await this.getByUsername(user.username);
 
-    if (userExists) throw new HttpException(400, 'User already exists');
+    if (!userExists) {
+      const newAccount = await this.accountService.createAccount();
+      const newUser = await User.create({
+        username: user.username,
+        password: encryptPassword(user.password),
+        accountId: newAccount.dataValues.id,
+      });
+      const token = tokenGenerate(newUser.username, newUser.id);
 
-    const newAccount = await this.accountService.createAccount();
-    const newUser = await User.create({
-      username: user.username,
-      password: encryptPassword(user.password),
-      accountId: newAccount.dataValues.id,
-    });
-    const token = tokenGenerate(newUser.username, newUser.id);
-
-    return {
-      newUser,
-      token,
-    };
+      return {
+        newUser,
+        token,
+      };
+    }
   }
 
-  public async getUserById(id:number):Promise<User | void> {
+  public async getUserById(id:number):Promise<User | null> {
     const user = await User.findByPk(id, {
-      include: [
-        {
-          model: Account,
-        },
-      ],
+      include: [{ model: Account }],
     });
 
-    if (!user) throw new HttpException(404, 'User not found');
     return user;
   }
 
-  public async getUsersTransaction(idCashOut:string, usernameCashIn:string):Promise<IUsersTransaction> {
+  public async getUsersTransaction(idCashOut:string, usernameCashIn:string):Promise<IUsersTransaction | null> {
     const userCashOut = await this.getUserById(Number(idCashOut));
     const userCashIn = await this.getByUsername(usernameCashIn);
 
-    if (!userCashOut || !userCashIn) throw new HttpException(400, 'Invalid username');
+    if (!userCashOut || !userCashIn) return null;
 
     const validAccount = isValidAccount(userCashIn.dataValues.id, userCashOut.dataValues.id);
-    if (!validAccount) throw new HttpException(400, 'Invalid username');
+    if (!validAccount) return null;
 
     return {
       cashOut: userCashOut,

@@ -2,6 +2,7 @@ import { Request, Response, NextFunction } from 'express';
 import { LoginService } from '../services/login.service';
 import { IUser } from '../interfaces/INewUser';
 import { ILoggedUser } from '../interfaces/ILoggedUser';
+import HttpException from '../exceptions/HttpException';
 
 export class LoginController {
   private service: LoginService;
@@ -14,6 +15,8 @@ export class LoginController {
     try {
       const { username, password }: IUser = req.body;
       const user = await this.service.login({ username, password }) as ILoggedUser;
+
+      if (!user) throw new HttpException(401, 'Invalid fiels');
 
       const result = {
         user: {

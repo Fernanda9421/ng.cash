@@ -1,5 +1,4 @@
 import Account from '../database/models/Account';
-import HttpException from '../exceptions/HttpException';
 import { newBalanceCashIn, newBalanceCashOut } from '../utils/newBalance';
 
 const INITIAL_BALANCE = '100,00';
@@ -11,10 +10,9 @@ export class AccountService {
     return account;
   }
 
-  public async getBalanceById(accountId:number):Promise<Account | void> {
+  public async getBalanceById(accountId:number):Promise<Account | null> {
     const account = await Account.findOne({ where: { id: accountId } });
 
-    if (!account) throw new HttpException(404, 'Account not found');
     return account;
   }
 
@@ -22,9 +20,7 @@ export class AccountService {
     const newValue = newBalanceCashOut(balance, value);
 
     const newBalance = await Account.update({
-      balance: String(newValue),
-    }, {
-      where: { id },
+      balance: String(newValue) }, { where: { id },
     });
 
     return newBalance;
@@ -34,9 +30,7 @@ export class AccountService {
     const newValue = newBalanceCashIn(balance, value);
 
     const newBalance = await Account.update({
-      balance: String(newValue),
-    }, {
-      where: { id },
+      balance: String(newValue) }, { where: { id },
     });
 
     return newBalance;
