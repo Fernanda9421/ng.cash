@@ -28,4 +28,15 @@ export class TransactionController {
       next(error);
     }
   }
+
+  public async getTransactionsById(req:Request, res:Response, next:NextFunction):Promise<Response | void> {
+    try {
+      const { id } = req.params;
+      const transactions = await this.service.getTransactionsById(id);
+
+      return res.status(200).json(transactions);
+    } catch (error) {
+      next(error);
+    }
+  }
 }

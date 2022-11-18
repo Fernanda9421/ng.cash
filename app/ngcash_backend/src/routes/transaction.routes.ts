@@ -13,4 +13,12 @@ transactionRouter.post(
   },
 );
 
+transactionRouter.get(
+  '/:id',
+  validateToken,
+  (req, res, next) => {
+    transactionController.getTransactionsById(req, res, next);
+  },
+);
+
 export default transactionRouter;

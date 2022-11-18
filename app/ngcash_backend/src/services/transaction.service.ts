@@ -1,6 +1,11 @@
+import { Op } from 'sequelize';
 import { AccountService } from './account.service';
 import { UserService } from './user.service';
 import Transaction from '../database/models/Transaction';
+import HttpException from '../exceptions/HttpException';
+import Account from '../database/models/Account';
+import User from '../database/models/User';
+import { ITransactions } from '../interfaces/ITransaction';
 
 const date = new Date();
 
@@ -33,5 +38,48 @@ export class TransactionService {
     const transaction = await Transaction.create(dataForTransaction);
 
     return transaction;
+  }
+
+  public async getTransactionsById(id:string):Promise<ITransactions> {
+    const transactions = await Transaction.findAll({
+      where: {
+        [Op.or]: {
+          creditedAccountId: Number(id),
+          debitedAccountId: Number(id),
+        },
+      },
+      include: [
+        { model: Account,
+          as: 'creditedAccount',
+          attributes: { exclude: ['balance'] },
+          include: [
+            {
+              model: User,
+              attributes: { exclude: ['id', 'password', 'accountId'] },
+            },
+          ],
+        },
+        {
+          model: Account,
+          as: 'debitedAccount',
+          attributes: { exclude: ['balance'] },
+          include: [
+            {
+              model: User,
+              attributes: { exclude: ['id', 'password', 'accountId'] },
+            },
+          ],
+        },
+      ],
+    });
+
+    if (!transactions) throw new HttpException(400, 'User no transactions');
+
+    return {
+      cashIn:
+        transactions.filter((transaction) => transaction.creditedAccountId === Number(id)),
+      cashOut:
+        transactions.filter((transaction) => transaction.debitedAccountId === Number(id)),
+    };
   }
 }
