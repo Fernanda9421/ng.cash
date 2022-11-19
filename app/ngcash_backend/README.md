@@ -40,12 +40,12 @@
 **Banco de Dados:**
 - Tem o papel de fornecer dados para o serviço back-end.
 - Conta com um script `db:reset` para resetar, criar e rodar as migrations do banco de dados. Você pode usá-lo em app/ngcash_backend com o comando `npm run db:reset`;
-**OBS:** Esses passos só serão necessários caso você não utilize o *Docker*.
+- **OBS:** Esses passos só serão necessários caso você não utilize o *Docker*.
 
 **Back-end:**
 - Para rodar localmente, em ambiente de desenvolvimento, é necessário alterar o arquivo `.env.example`, preenchendo os valores das variáveis de ambiente condizentes com o seu ambiente de desenvolvimento. Lembre-se de renomear o arquivo para `.env`.
 - Conta com o script `dev` para rodar a aplicação. Você pode usá-lo em app/ngcash_backend com o comando `npm run dev`;
-**OBS:** Esses passos só serão necessários caso você não utilize o *Docker*.
+- **OBS:** Esses passos só serão necessários caso você não utilize o *Docker*.
 
 ## *API Reference*
 
@@ -142,7 +142,7 @@ GET /account/:id
 ### **Realização de *cash-out*:**
 
 ```http
-POST transaction/:id
+POST /transaction/:id
 ```
 
 **Corpo da requisição:**
@@ -180,7 +180,7 @@ POST transaction/:id
 ### **Visualização de transações:**
 
 ```http
-GET transaction/:id
+GET /transaction/:id
 ```
 
 **Validações:**
@@ -224,17 +224,17 @@ GET transaction/:id
 
 **Filtro por data**
 ```http
-GET transaction/:id?createdAt=2022-11-19
+GET /transaction/:id?createdAt=2022-11-19
 ```
 
 **Filtro por data e *cash-in***
 ```http
-GET transaction/:id?createdAt=2022-11-19&cashIn=true
+GET /transaction/:id?createdAt=2022-11-19&cashIn=true
 ```
 
 **Filtro por data e *cash-out***
 ```http
-GET transaction/:id?createdAt=2022-11-19&cashOut=true
+GET /transaction/:id?createdAt=2022-11-19&cashOut=true
 ```
 
 **Validações:**
