@@ -1,0 +1,45 @@
+version: '3.9'
+services:
+  backend:
+    build: ./ngcash_backend
+    restart: 'on-failure'
+    ports:
+      - 3001:3001
+    container_name: app_backend
+    command: "npm start"
+    volumes:
+      - './ngcash_backend/build:/app/build'
+    depends_on:
+      - db
+      - migrations
+    environment:
+      - DB_USER=postgres
+      - DB_PASSWORD=postgres123
+      - DB_HOST=db
+      - DB_NAME=ngcash
+      - DB_PORT=5432
+      - SECRET=senhasecreta123
+  migrations:
+    build: ./ngcash_backend
+    restart: 'on-failure'
+    container_name: migrations
+    command: "npm run db:reset"
+    volumes:
+      - './ngcash_backend/build:/app/build'
+    depends_on:
+      - db
+    environment:
+      - DB_USER=postgres
+      - DB_PASSWORD=postgres123
+      - DB_HOST=db
+      - DB_NAME=ngcash
+      - DB_PORT=5432
+      - SECRET=senhasecreta123
+  db:
+    image: postgres
+    container_name: db
+    ports:
+      - 3002:5432
+    environment:
+      - POSTGRES_PASSWORD=postgres123
+    restart: 'on-failure'
