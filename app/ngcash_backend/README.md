@@ -34,18 +34,17 @@
 
 **Docker:**
 - O Docker tem o papel de unir todas as partes e subir o projeto completo com um comando único, via `docker-compose`;
-- A `Dockerfile` e o `docker-compose` estão configurados.
-- Na raíz do projeto, rode o comando `docker-compose up -d`.
+- Na raíz do projeto, rode o comando `docker-compose -f docker-compose.yaml up --build`.
 
 **Banco de Dados:**
+> **OBS:** Esses passos só serão necessários caso você não utilize o *Docker*.
 - Tem o papel de fornecer dados para o serviço back-end.
 - Conta com um script `db:reset` para resetar, criar e rodar as migrations do banco de dados. Você pode usá-lo em app/ngcash_backend com o comando `npm run db:reset`;
-- **OBS:** Esses passos só serão necessários caso você não utilize o *Docker*.
 
 **Back-end:**
+> **OBS:** Esses passos só serão necessários caso você não utilize o *Docker*.
 - Para rodar localmente, em ambiente de desenvolvimento, é necessário alterar o arquivo `.env.example`, preenchendo os valores das variáveis de ambiente condizentes com o seu ambiente de desenvolvimento. Lembre-se de renomear o arquivo para `.env`.
 - Conta com o script `dev` para rodar a aplicação. Você pode usá-lo em app/ngcash_backend com o comando `npm run dev`;
-- **OBS:** Esses passos só serão necessários caso você não utilize o *Docker*.
 
 ## *API Reference*
 
