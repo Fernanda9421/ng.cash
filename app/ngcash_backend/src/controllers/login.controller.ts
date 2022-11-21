@@ -16,7 +16,7 @@ export class LoginController {
       const { username, password }: IUser = req.body;
       const user = await this.service.login({ username, password }) as ILoggedUser;
 
-      if (!user) throw new HttpException(401, 'Invalid fiels');
+      if (!user) throw new HttpException(401, 'Invalid fields');
 
       const result = {
         user: {
@@ -27,7 +27,7 @@ export class LoginController {
         token: user.token,
       };
 
-      return res.status(201).json(result);
+      return res.status(200).json(result);
     } catch (error) {
       next(error);
     }
