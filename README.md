@@ -15,6 +15,7 @@
 - Projeto
   - [Sobre](#sobre)
   - [Inicialize a Aplicação](#inicialize-a-aplicação)
+  - [Testes de integração](#testes-de-integração)
   - [Configuração de portas da aplicação](#configuração-de-portas-da-aplicação)
   - [Documentação](#documentação)
 - [Autor](#autor)
@@ -41,6 +42,16 @@
   docker-compose -f docker-compose.yaml up --build
   ```
 
+## Testes de integração:
+- Certifique-se de que os containers `app_backend` e `db` estão com `status: Up`, com o comando:
+  ```bash
+  docker ps
+  ```
+- Com outro terminal aberto, entre no diretório `ngcash_backend` e rode o comando:
+  ```bash
+  npm test
+  ```
+
 ## Configuração de portas da aplicação:
 
 > **Banco de dados:** `Porta 3002`;
@@ -49,7 +60,7 @@
 
 ## Documentação
 
-Toda a documentação da API se encontra no diretório `ngcash_backend`;
+Toda a documentação da API se encontra no diretório [ngcash_backend](app/ngcash_backend/README.md);
 
 # Autor:
 - [Linkedin](https://www.linkedin.com/in/fernandaacarvalho/)

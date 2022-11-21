@@ -15,6 +15,7 @@
 - Projeto
   - [Sobre](#sobre)
   - [Estrutura do Projeto](#estrutura-do-projeto)
+  - [Testes de integração](#testes-de-integração)
   - [API Reference](#api-reference)
 - [Autor](#autor)
 
@@ -45,6 +46,13 @@
 > **OBS:** Esses passos só serão necessários caso você não utilize o *Docker*.
 - Para rodar localmente, em ambiente de desenvolvimento, é necessário alterar o arquivo `.env.example`, preenchendo os valores das variáveis de ambiente condizentes com o seu ambiente de desenvolvimento. Lembre-se de renomear o arquivo para `.env`.
 - Conta com o script `dev` para rodar a aplicação. Você pode usá-lo em app/ngcash_backend com o comando `npm run dev`;
+
+## Testes de integração:
+- Para rodar os testes de integração, basta rodar o comando no terminal:
+
+  ```bash
+  npm test
+  ```
 
 ## *API Reference*
 
