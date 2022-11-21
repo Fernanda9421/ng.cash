@@ -47,10 +47,19 @@
   ```bash
   docker ps
   ```
-- Com outro terminal aberto, entre no diretório `ngcash_backend` e rode o comando:
-  ```bash
-  npm test
-  ```
+- Com outro terminal aberto, entre no diretório `ngcash_backend`;
+- Escolha o comando abaixo que melhor se encaixa no seu caso:
+  - Se for rodar os testes pela primeira vez:
+
+    ```bash
+    npm run prepare-and-test
+    ```
+
+  - Se as dependências já foram instaladas previamente:
+
+    ```bash
+    npm test
+    ```
 
 ## Configuração de portas da aplicação:
 
