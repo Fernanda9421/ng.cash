@@ -16,8 +16,16 @@ export class UserController {
       const { username, password }: IUser = req.body;
       const user = await this.service.registerUser({ username, password }) as ILoggedUser;
 
-      if (!user) throw new HttpException(404, 'User already exists');
-      return res.status(201).json({ token: user.token });
+      if (!user) throw new HttpException(400, 'User already exists');
+      const response = {
+        user: {
+          username: user.newUser.username,
+          id: user.newUser.id,
+        },
+        token: user.token,
+      };
+
+      return res.status(201).json(response);
     } catch (error) {
       next(error);
     }
