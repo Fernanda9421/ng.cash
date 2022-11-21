@@ -10,6 +10,7 @@
     "airbnb-base",
     "airbnb-typescript/base"
   ],
+  "ignorePatterns": ["jest.config.js"],
   "parser": "@typescript-eslint/parser",
   "parserOptions": {
     "ecmaVersion": 2019,
