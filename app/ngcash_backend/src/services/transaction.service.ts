@@ -47,7 +47,11 @@ export class TransactionService {
 
   public async getTransactionsById(
     id:string, createdAt?:string, cashOut?:string, cashIn?:string,
-  ):Promise<Transaction[]> {
+  ):Promise<Transaction[] | null> {
+    const userExists = await this.userService.getUserById(Number(id));
+
+    if (!userExists) return null;
+
     let filters = {};
     filters = {
       ...filters,

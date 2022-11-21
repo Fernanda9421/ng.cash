@@ -39,8 +39,7 @@ export class TransactionController {
         throw new HttpException(400, 'Query param has to be of type string');
       }
       const transactions = await this.service.getTransactionsById(id, createdAt, cashOut, cashIn);
-
-      if (transactions.length === 0) throw new HttpException(400, 'User no transactions');
+      if (!transactions) throw new HttpException(400, 'Invalid User');
 
       return res.status(200).json(transactions);
     } catch (error) {
