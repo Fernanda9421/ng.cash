@@ -1,13 +1,21 @@
 .container {
-  @apply lg:flex lg:m-auto;
+  @apply lg:flex lg:m-auto lg:items-center lg:content-center;
 }
 
 .formContainer {
-  @apply w-screen h-screen flex justify-center;
+  @apply w-screen h-screen flex justify-center border-l-secondary border-l;
   @apply lg:flex lg:flex-col lg:justify-center lg:items-center lg:h-screen lg:w-1/2;
 }
 
 .image {
   @apply hidden;
-  @apply sm:w-3/6 sm:flex items-center justify-center border-l-secondary border-l;
+  @apply lg:w-3/6 lg:flex items-center justify-center;
+}
+
+.presentation {
+  @apply flex flex-col text-secondary items-center;
+}
+
+.title {
+  @apply text-2xl font-bold;
 }

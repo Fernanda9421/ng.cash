@@ -23,7 +23,7 @@ const FormLogin: FunctionComponent = () => {
     <form className={styles.formContainer} onSubmit={handleSubmit(onSubmit)}>
       <div className={styles.presentation}>
         <h1 className={styles.title}>NG.CA$H</h1>
-        <p>A sua carteira digital</p>
+        <p className={styles.subtitle}>A sua carteira digital</p>
       </div>
       <div className={styles.inputContainer}>
         <div className={styles.inputBox}>

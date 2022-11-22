@@ -1,13 +1,19 @@
 .formContainer {
-  @apply flex flex-col justify-center self-center;
+  @apply flex flex-col justify-center self-center sm:py-10 sm:px-12 sm:pb-20 sm:rounded-lg sm:border sm:border-secondary;
 }
 
 .presentation {
+  @apply lg:hidden;
   @apply flex flex-col text-secondary items-center mb-12;
 }
 
 .title {
+  @apply lg:hidden;
   @apply text-2xl font-bold;
+}
+
+.subtitle {
+  @apply lg:hidden;
 }
 
 .inputContainer {
