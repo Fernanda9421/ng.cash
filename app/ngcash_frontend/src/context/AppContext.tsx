@@ -8,6 +8,8 @@ const authContextDefaultValues:authContextType = {
   },
   setInfoUser: () => { },
   onChange: () => { },
+  error: '',
+  setError: () => { },
   // onSubmit: () => { },
 };
 

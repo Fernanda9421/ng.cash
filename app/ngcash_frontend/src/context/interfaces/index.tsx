@@ -20,5 +20,7 @@ export interface authContextType {
   onChange: (event: { target: Target },
     state: ComponentState,
     setState: Dispatch<SetStateAction<ComponentState>>) => void,
+  error: string,
+  setError: Dispatch<SetStateAction<string>>
   // onSubmit: () => void,
 };

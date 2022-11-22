@@ -8,6 +8,8 @@ const AppProvider: FunctionComponent<Props> = ({ children }) => {
     password: '',
   });
 
+  const [error, setError] = useState('');
+
   const onChange = (
     event: { target: Target },
     state: ComponentState,
@@ -24,6 +26,8 @@ const AppProvider: FunctionComponent<Props> = ({ children }) => {
     infoUser,
     setInfoUser,
     onChange,
+    error,
+    setError,
   };
 
   return (
