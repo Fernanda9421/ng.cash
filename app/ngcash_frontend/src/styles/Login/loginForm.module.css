@@ -1,0 +1,44 @@
+.formContainer {
+  @apply flex flex-col justify-center self-center;
+}
+
+.presentation {
+  @apply flex flex-col text-secondary items-center mb-12;
+}
+
+.title {
+  @apply text-2xl font-bold;
+}
+
+.inputContainer {
+  @apply space-y-6;
+}
+
+.inputBox {
+  @apply flex items-center relative;
+}
+
+.icon {
+  @apply absolute left-3.5 text-secondary;
+}
+
+.inputField {
+  @apply w-full text-sm py-3 border rounded-lg focus:outline-none pl-11 focus:border-secondary;
+}
+
+.error {
+  @apply text-xs text-secondary;
+  margin-top: 0.2rem !important;
+}
+
+.register {
+  @apply text-white text-sm;
+}
+
+.link {
+  @apply text-secondary cursor-pointer;
+}
+
+.button {
+  @apply w-full flex justify-center p-3 rounded-lg tracking-wide font-semibold cursor-pointer transition ease-in duration-500 my-6 mx-0 bg-secondary hover:bg-hover text-white;
+}
