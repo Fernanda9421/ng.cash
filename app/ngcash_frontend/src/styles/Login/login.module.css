@@ -1,0 +1,13 @@
+.container {
+  @apply lg:flex lg:m-auto;
+}
+
+.formContainer {
+  @apply w-screen h-screen flex justify-center;
+  @apply lg:flex lg:flex-col lg:justify-center lg:items-center lg:h-screen lg:w-1/2;
+}
+
+.image {
+  @apply hidden;
+  @apply sm:w-3/6 sm:flex items-center justify-center border-l-secondary border-l;
+}
