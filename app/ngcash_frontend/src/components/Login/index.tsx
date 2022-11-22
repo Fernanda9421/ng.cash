@@ -1,25 +1,18 @@
 import Image from 'next/image';
 import LoginImage from '../../images/login.png';
-import FormLogin from './FormLogin';
-import styles from '@/styles/Login/login.module.css';
+import styles from '@/styles/Form/heroForm.module.css';
+import Form from '../Form';
+import { IFormInputs } from '../InputField/interfaces';
+import HeroForm from '../HeroForm';
 
 const Login = () => {
+  const onSubmit = (data:IFormInputs) => console.log(data);
+
   return (
     <div className={styles.container}>
-      <div className={styles.image}>
-        <div className={styles.presentation}>
-          <h1 className={styles.title}>NG.CA$H</h1>
-          <p className='mb-10'>A sua carteira digital</p>
-          <Image
-            src={LoginImage}
-            alt='Wallet ilustration'
-            width={350}
-            height={250}
-          />
-        </div>
-      </div>
+      <HeroForm image={LoginImage} width={350} height={250} />
       <div className={styles.formContainer}>
-        <FormLogin />
+        <Form onSubmit={ onSubmit } content='Entrar' />
       </div>
     </div>
   );
