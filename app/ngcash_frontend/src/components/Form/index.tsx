@@ -7,12 +7,12 @@ import Button from '../Button';
 import { IFormInputs } from '../InputField/interfaces';
 import { userSchema } from 'src/schemas/userSchema';
 import { AppContext } from 'src/context/AppContext';
-import { FaRegEnvelope, FaLock } from 'react-icons/fa';
+import { FaUserAlt, FaLock } from 'react-icons/fa';
 import { Props } from './interfaces';
 import { useRouter } from 'next/router';
 
 const Form: FunctionComponent<Props> = ({ onSubmit, content }) => {
-  const { onChange, infoUser, setInfoUser } = useContext(AppContext);
+  const { onChange, infoUser, setInfoUser, error } = useContext(AppContext);
   const { register, handleSubmit, formState: { errors } } = useForm<IFormInputs>({
     resolver: yupResolver(userSchema),
   });
@@ -27,7 +27,7 @@ const Form: FunctionComponent<Props> = ({ onSubmit, content }) => {
       </div>
       <div className={styles.inputContainer}>
         <div className={styles.inputBox}>
-          <FaRegEnvelope className={styles.icon} />
+          <FaUserAlt className={styles.icon} />
           <InputField
             name='username'
             type='text'
@@ -41,6 +41,11 @@ const Form: FunctionComponent<Props> = ({ onSubmit, content }) => {
         {
           errors.username?.message && (
             <p className={styles.error}>{errors.username?.message}</p>
+          )
+        }
+        {
+          error === 'User already exists' &&(
+            <p className={styles.error}>Usuário já cadastrado</p>
           )
         }
 
@@ -59,6 +64,11 @@ const Form: FunctionComponent<Props> = ({ onSubmit, content }) => {
         {
           errors.password?.message && (
             <p className={styles.error}>{errors.password?.message}</p>
+          )
+        }
+        {
+          error === 'Invalid fields' && (
+            <p className={styles.error}>Usuário e/ou senha inválidos</p>
           )
         }
 
