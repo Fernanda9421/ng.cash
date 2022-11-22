@@ -1,21 +1,21 @@
 import { FunctionComponent, useContext } from 'react';
+import styles from '@/styles/Form/form.module.css';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { useForm } from 'react-hook-form';
 import InputField from '../InputField';
+import Button from '../Button';
 import { IFormInputs } from '../InputField/interfaces';
 import { userSchema } from 'src/schemas/userSchema';
 import { AppContext } from 'src/context/AppContext';
-import Button from '../Button';
 import { FaRegEnvelope, FaLock } from 'react-icons/fa';
+import { Props } from './interfaces';
 import { useRouter } from 'next/router';
-import styles from '@/styles/Login/loginForm.module.css';
 
-const FormLogin: FunctionComponent = () => {
+const Form: FunctionComponent<Props> = ({ onSubmit, content }) => {
   const { onChange, infoUser, setInfoUser } = useContext(AppContext);
   const { register, handleSubmit, formState: { errors } } = useForm<IFormInputs>({
     resolver: yupResolver(userSchema),
   });
-  const onSubmit = (data:IFormInputs) => console.log(data);
 
   const router = useRouter();
 
@@ -62,15 +62,19 @@ const FormLogin: FunctionComponent = () => {
           )
         }
 
-        <p className={styles.register}> Não tem conta? <a className={styles.link} onClick={ () => router.push('/register') }>Registrar</a></p>
+        {
+          content === 'Entrar' && (
+            <p className={styles.register}> Não tem conta? <a className={styles.link} onClick={ () => router.push('/register') }>Registrar</a></p>
+          )
+        }
 
         <Button
           className={styles.button}
-          name='Entrar'
+          name={ content }
         />
       </div>
     </form>
   );
 };
 
-export default FormLogin;
+export default Form;
