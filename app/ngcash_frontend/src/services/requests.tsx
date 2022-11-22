@@ -1,5 +1,5 @@
 import axios from  'axios';
-import { IBodyForm, IRequest } from './interfaces';
+import { IBodyForm } from './interfaces';
 
 const port = process.env.REACT_APP_BACKEND_PORT || '3001';
 const baseURL = process.env.REACT_APP_BACKEND_BASE_URL || 'http://localhost';
