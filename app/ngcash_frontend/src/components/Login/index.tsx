@@ -9,7 +9,7 @@ import { requestPost } from 'src/services/requests';
 import { useRouter } from 'next/router';
 import { storageSetItem } from 'src/utils/localStorage';
 import { IUser } from './interfaces';
-import { Exception } from '../interfaces/error';
+import { Exception } from '../../interfaces/error';
 
 const Login = () => {
   const { setError } = useContext(AppContext);

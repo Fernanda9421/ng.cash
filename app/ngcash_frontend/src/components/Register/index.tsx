@@ -8,7 +8,7 @@ import { requestPost } from 'src/services/requests';
 import { AppContext } from 'src/context/AppContext';
 import { useRouter } from 'next/router';
 import { storageSetItem } from 'src/utils/localStorage';
-import { Exception } from '../interfaces/error';
+import { Exception } from '../../interfaces/error';
 
 const Register: FunctionComponent = () => {
   const { setError } = useContext(AppContext);
