@@ -1,0 +1,35 @@
+.container {
+  @apply flex flex-col w-4/6 h-3/6;
+}
+
+.box {
+  @apply h-96 flex flex-col justify-evenly p-12;
+}
+
+.title {
+  @apply text-2xl text-secondary mt-10;
+}
+
+.receipt {
+  @apply w-full h-4/6 flex justify-between items-center mt-5;
+}
+
+.subtitle {
+  @apply text-xl pb-5 mt-5;
+}
+
+.listItem {
+  @apply text-black text-lg flex flex-col;
+}
+
+.result {
+  @apply text-black font-thin;
+}
+
+.buttons {
+  @apply w-full flex justify-around;
+}
+
+.button {
+  @apply w-2/6 mr-12 flex justify-center py-3 rounded-lg tracking-wide font-semibold cursor-pointer transition ease-in duration-200 my-4 mx-0 bg-secondary hover:bg-black text-white;
+}
