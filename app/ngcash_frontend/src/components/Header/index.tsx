@@ -1,12 +1,13 @@
 import Link from 'next/link';
-import { FunctionComponent, useEffect, useState } from 'react';
+import { FunctionComponent } from 'react';
 import { FaSignOutAlt } from 'react-icons/fa';
+import styles from '@/styles/Header/header.module.css';
 
 const Header: FunctionComponent = () => {
   return (
-    <div className='flex items-center justify-between w-full'>
-      <p className='text-white mt-4 mx-6 font-bold'>NG.CA$H</p>
-      <Link href='/' className='flex text-white mx-6 mt-4 w-16 items-center justify-between text-xl'>
+    <div className={styles.container}>
+      <p className={styles.logo}>NG.CA$H</p>
+      <Link href='/' className={styles.signOut}>
         Sair <FaSignOutAlt />
       </Link>
     </div>

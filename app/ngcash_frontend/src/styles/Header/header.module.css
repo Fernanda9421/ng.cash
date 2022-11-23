@@ -1,0 +1,11 @@
+.container {
+  @apply flex items-center justify-between w-full;
+}
+
+.logo {
+  @apply text-white mt-4 mx-6 font-bold;
+}
+
+.signOut {
+  @apply flex text-white mx-6 mt-4 w-16 items-center justify-between text-xl;
+}
