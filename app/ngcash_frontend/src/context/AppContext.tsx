@@ -10,7 +10,11 @@ const authContextDefaultValues:authContextType = {
   onChange: () => { },
   error: '',
   setError: () => { },
-  // onSubmit: () => { },
+  dataCashIn: {
+    username: '',
+    value: 0,
+  },
+  setDataCashIn: () => { },
 };
 
 export const AppContext = createContext<authContextType>(authContextDefaultValues);

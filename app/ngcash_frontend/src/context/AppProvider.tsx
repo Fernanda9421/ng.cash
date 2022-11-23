@@ -1,6 +1,6 @@
 import { FunctionComponent, useState, ComponentState, Dispatch, SetStateAction } from 'react';
 import { AppContext } from './AppContext';
-import { Props, Target } from './interfaces';
+import { IDataCashIn, Props, Target } from './interfaces';
 
 const AppProvider: FunctionComponent<Props> = ({ children }) => {
   const [infoUser, setInfoUser] = useState({
@@ -8,18 +8,23 @@ const AppProvider: FunctionComponent<Props> = ({ children }) => {
     password: '',
   });
 
+  const [dataCashIn, setDataCashIn] = useState({
+    username: '',
+    value: 0.01,
+  });
+
   const [error, setError] = useState('');
 
   const onChange = (
     event: { target: Target },
-    state: ComponentState,
-    setState: Dispatch<SetStateAction<ComponentState>>
+    state: ComponentState | IDataCashIn,
+    setState: Dispatch<SetStateAction<ComponentState>> | Dispatch<SetStateAction<IDataCashIn>>
   ) => {
     const { name, value } = event.target;
     setState({
       ...state,
       [name]: value,
-    } as ComponentState);
+    } as ComponentState | IDataCashIn);
   };
 
   const context = {
@@ -28,6 +33,8 @@ const AppProvider: FunctionComponent<Props> = ({ children }) => {
     onChange,
     error,
     setError,
+    dataCashIn,
+    setDataCashIn,
   };
 
   return (
