@@ -2,7 +2,7 @@ import { FunctionComponent } from 'react';
 import { Props } from './interfaces';
 
 const InputField: FunctionComponent<Props> = ({
-  name, value, type, className, placeholder, onChange, register,
+  name, value, type, className, placeholder, onChange, register, step
 }) => {
   return (
     <input
@@ -13,6 +13,7 @@ const InputField: FunctionComponent<Props> = ({
       placeholder={placeholder}
       {...register(name)}
       onChange={onChange}
+      step={step}
     />
   );
 };
