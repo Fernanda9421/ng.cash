@@ -7,8 +7,6 @@ import styles from '@/styles/Account/account.module.css';
 import Link from 'next/link';
 import Button from '../Button';
 
-// const redirect = (route:any) => route.push('/');
-
 const Account = () => {
   const route = useRouter();
   const [isAuthenticated, setIsAuthenticated] = useState(false);
@@ -51,7 +49,7 @@ const Account = () => {
             </div>
             <div className={styles.buttonContainer}>
               <Button className={styles.button} name='Operações' />
-              <Button className={styles.button} name='Transferir' />
+              <Button className={styles.button} name='Transferir' onClick={() => route.push('/transfer')} />
             </div>
           </div>
         )
