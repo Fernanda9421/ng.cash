@@ -49,7 +49,7 @@ const Account = () => {
               <span className='text-secondary mr-3'>Saldo atual:</span>
               <span>R${balance}</span>
             </div>
-            <div className='flex my-2'>
+            <div className={styles.buttonContainer}>
               <Button className={styles.button} name='Operações' />
               <Button className={styles.button} name='Transferir' />
             </div>

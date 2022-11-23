@@ -1,0 +1,32 @@
+.container {
+  @apply w-screen h-screen bg-[url('../../images/account.jpg')] bg-cover bg-no-repeat;
+}
+
+.presentationContainer {
+  @apply flex flex-col h-4/6 justify-end ml-8;
+  @apply lg:relative lg:top-52 lg:left-12 lg:w-96 lg:h-48;
+}
+
+.user {
+  @apply flex flex-col my-5;
+}
+
+.welcome {
+  @apply text-5xl sm:text-6xl text-secondary pb-3;
+}
+
+.username {
+  @apply text-xl;
+}
+
+.balance {
+  @apply text-black text-2xl;
+}
+
+.buttonContainer {
+  @apply flex my-2;
+}
+
+.button {
+  @apply w-2/6 mr-12 flex justify-center py-3 rounded-lg tracking-wide font-semibold cursor-pointer transition ease-in duration-200 my-4 mx-0 bg-secondary hover:bg-black text-white;
+}
