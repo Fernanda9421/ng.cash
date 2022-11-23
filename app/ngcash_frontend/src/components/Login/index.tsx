@@ -19,9 +19,10 @@ const Login = () => {
     const endpoint = '/login';
 
     try {
-      const { token, user: { username } }:IUser = await requestPost(endpoint, data);
+      const { token, user }:IUser = await requestPost(endpoint, data);
+      const { username, id } = user;
       setError('');
-      storageSetItem('user', { token, username });
+      storageSetItem('user', { token, username, id });
       route.push('/account');
     } catch (error) {
       const result = (error as Exception).response.data.message;
