@@ -1,0 +1,20 @@
+.container {
+  @apply w-screen h-screen bg-[url('../../images/background.jpg')] bg-cover bg-no-repeat;
+}
+
+.presentationContainer {
+  @apply flex flex-col h-4/6 justify-end ml-8;
+  @apply lg:relative lg:w-96 lg:h-48;
+}
+
+.title {
+  @apply text-secondary font-bold text-4xl;
+}
+
+.inputContainer {
+  @apply flex flex-col m-28 w-3/6;
+}
+
+.input {
+  @apply flex flex-col;
+}
