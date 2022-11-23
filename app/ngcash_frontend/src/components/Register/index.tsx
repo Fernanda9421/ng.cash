@@ -9,6 +9,7 @@ import { AppContext } from 'src/context/AppContext';
 import { useRouter } from 'next/router';
 import { storageSetItem } from 'src/utils/localStorage';
 import { Exception } from '../../interfaces/error';
+import { IUser } from '../Login/interfaces';
 
 const Register: FunctionComponent = () => {
   const { setError } = useContext(AppContext);
@@ -17,9 +18,10 @@ const Register: FunctionComponent = () => {
     const endpoint = '/register';
 
     try {
-      const { token, user: { username } } = await requestPost(endpoint, data);
+      const { token, user }:IUser = await requestPost(endpoint, data);
+      const { username, id } = user;
       setError('');
-      storageSetItem('user', { token, username });
+      storageSetItem('user', { token, username, id });
       route.push('/account');
     } catch (error) {
       const result = (error as Exception).response.data.message;
