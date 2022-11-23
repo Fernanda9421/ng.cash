@@ -1,9 +1,14 @@
-const Account = () => {
+import Account from '@/components/Account';
+import Header from '@/components/Header';
+import styles from '@/styles/Account/account.module.css';
+
+const AccountPage = () => {
   return (
-    <div className='h-screen w-screen bg-black'>
-      Conta
+    <div className={styles.container}>
+      <Header />
+      <Account />
     </div>
   );
 };
 
-export default Account;
+export default AccountPage;
