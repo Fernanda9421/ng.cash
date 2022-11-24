@@ -48,7 +48,7 @@ const Account = () => {
               <span>R${balance}</span>
             </div>
             <div className={styles.buttonContainer}>
-              <Button className={styles.button} name='Operações' />
+              <Button className={styles.button} name='Operações' onClick={() => route.push('/operations')} />
               <Button className={styles.button} name='Transferir' onClick={() => route.push('/transfer')} />
             </div>
           </div>
