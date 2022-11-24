@@ -12,7 +12,7 @@ const Transfer: FunctionComponent = () => {
   }, []);
 
   return (
-    <div>
+    <div className={styles.transferContainer}>
       <div className={styles.presentationContainer}>
         <h1 className={styles.title}>Área de transferência</h1>
         <p className='text-secondary'>@{user}</p>

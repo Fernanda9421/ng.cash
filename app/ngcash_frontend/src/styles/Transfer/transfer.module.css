@@ -2,9 +2,13 @@
   @apply w-screen h-screen bg-[url('../../images/background.jpg')] bg-cover bg-no-repeat;
 }
 
+.transferContainer {
+  @apply lg:w-full w-5/6 h-3/5;
+}
+
 .presentationContainer {
   @apply flex flex-col h-4/6 justify-end ml-8;
-  @apply lg:relative lg:w-96 lg:h-48;
+  @apply lg:relative lg:w-96 lg:h-52;
 }
 
 .title {
