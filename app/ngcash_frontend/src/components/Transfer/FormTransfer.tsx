@@ -14,10 +14,11 @@ import { storageGetItem } from 'src/utils/localStorage';
 import { requestPost, setToken } from 'src/services/requests';
 import { Exception } from 'src/interfaces/error';
 import SuccessTransfer from '../SuccessTransfer';
+import ErrorTransfer from '../ErrorTransfer';
 
 const FormTransfer: FunctionComponent = () => {
   const route = useRouter();
-  const { onChange, dataCashIn, setDataCashIn } = useContext(AppContext);
+  const { onChange, dataCashIn, setDataCashIn, setError, error } = useContext(AppContext);
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [isTransactionSuccess, setIsTransactionSuccess] = useState(false);
   const [dataSuccess, setDataSuccess] = useState({
@@ -39,12 +40,13 @@ const FormTransfer: FunctionComponent = () => {
       setIsAuthenticated(true);
       setIsTransactionSuccess(true);
       setDataSuccess({value, createdAt});
+      setError('');
     } catch (error) {
       const result = (error as Exception).response.data.message;
       console.log(result);
       setIsAuthenticated(false);
       setIsTransactionSuccess(false);
-      route.push('/');
+      setError(result);
     }
   };
 
@@ -57,55 +59,59 @@ const FormTransfer: FunctionComponent = () => {
         setIsTransactionSuccess={ setIsTransactionSuccess }
       />
     ) : (
-      <form onSubmit={handleSubmit(onSubmit)}>
-        <div className={styles.inputContainer}>
-          <div className={styles.input}>
-            <label htmlFor="username">Username</label>
-            <div className={styleForm.inputBox}>
-              <FaUserAlt className={styleForm.icon} />
-              <InputField
-                value={dataCashIn.username}
-                name='username'
-                type='text'
-                className={styleForm.inputField}
-                placeholder='Username'
-                onChange={(event) => onChange(event, dataCashIn, setDataCashIn)}
-                register={register}
-              />
+      error ? (
+        <ErrorTransfer setIsTransactionSuccess={ setIsTransactionSuccess } />
+      ) : (
+        <form onSubmit={handleSubmit(onSubmit)}>
+          <div className={styles.inputContainer}>
+            <div className={styles.input}>
+              <label htmlFor="username">Username</label>
+              <div className={styleForm.inputBox}>
+                <FaUserAlt className={styleForm.icon} />
+                <InputField
+                  value={dataCashIn.username}
+                  name='username'
+                  type='text'
+                  className={styleForm.inputField}
+                  placeholder='Username'
+                  onChange={(event) => onChange(event, dataCashIn, setDataCashIn)}
+                  register={register}
+                />
+              </div>
+              {
+                errors.username?.message && (
+                  <p className={styleForm.error}>{errors.username?.message}</p>
+                )
+              }
             </div>
-            {
-              errors.username?.message && (
-                <p className={styleForm.error}>{errors.username?.message}</p>
-              )
-            }
-          </div>
-          <div className={styles.input}>
-            <label htmlFor="value">Valor</label>
-            <div className={styleForm.inputBox}>
-              <FaMoneyBillAlt className={styleForm.icon} />
-              <InputField
-                value={dataCashIn.value}
-                name='value'
-                type='number'
-                className={styleForm.inputField}
-                placeholder='Valor'
-                step='0.01'
-                onChange={(event) => onChange(event, dataCashIn, setDataCashIn)}
-                register={register}
-              />
+            <div className={styles.input}>
+              <label htmlFor="value">Valor</label>
+              <div className={styleForm.inputBox}>
+                <FaMoneyBillAlt className={styleForm.icon} />
+                <InputField
+                  value={dataCashIn.value}
+                  name='value'
+                  type='number'
+                  className={styleForm.inputField}
+                  placeholder='Valor'
+                  step='0.01'
+                  onChange={(event) => onChange(event, dataCashIn, setDataCashIn)}
+                  register={register}
+                />
+              </div>
+              {
+                errors.value?.message && (
+                  <p className={styleForm.error}>{errors.value?.message}</p>
+                )
+              }
             </div>
-            {
-              errors.value?.message && (
-                <p className={styleForm.error}>{errors.value?.message}</p>
-              )
-            }
+            <Button
+              className={styleForm.button}
+              name='Transferir'
+            />
           </div>
-          <Button
-            className={styleForm.button}
-            name='Transferir'
-          />
-        </div>
-      </form>
+        </form>
+      )
     )
   );
 };
