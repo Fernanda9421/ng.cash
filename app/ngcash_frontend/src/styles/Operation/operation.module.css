@@ -1,0 +1,28 @@
+.container {
+  @apply min-h-screen bg-[url('../../images/background.jpg')] bg-cover bg-no-repeat;
+}
+
+.operationContainer {
+  @apply lg:w-full w-5/6 h-3/5 flex flex-col;
+}
+
+.presentationContainer {
+  @apply flex flex-col h-4/6 justify-end ml-8 mt-8;
+  @apply lg:relative lg:w-1/2 lg:h-56 lg:mt-0;
+}
+
+.noTransactions {
+  @apply text-xl text-secondary ml-8 my-16;
+}
+
+.title {
+  @apply text-secondary font-bold text-4xl;
+}
+
+.buttons {
+  @apply flex lg:flex-row flex-col ml-8;
+}
+
+.button {
+  @apply lg:w-1/6 w-4/6 mr-12 flex justify-center py-3 rounded-lg tracking-wide font-semibold cursor-pointer transition ease-in duration-200 my-4 mx-0 bg-secondary hover:bg-black text-white;
+}
