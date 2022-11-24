@@ -1,0 +1,31 @@
+.tableContainer {
+  @apply w-screen lg:w-full mt-5;
+}
+
+.title {
+  @apply text-xl ml-8 text-secondary;
+}
+
+.table {
+  @apply w-full text-base my-11;
+}
+
+.thead {
+  @apply bg-primary text-secondary;
+}
+
+.th {
+  @apply w-2/6 py-2;
+}
+
+.tbody {
+  @apply text-primary;
+}
+
+.td {
+  @apply text-center py-1.5;
+}
+
+.tr {
+  @apply text-center;
+}
