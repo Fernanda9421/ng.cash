@@ -7,11 +7,11 @@
 }
 
 .title {
-  @apply text-2xl text-secondary mt-10;
+  @apply text-2xl text-secondary;
 }
 
 .receipt {
-  @apply w-full h-4/6 flex justify-between items-center mt-5;
+  @apply w-full h-4/6 flex justify-around items-center my-5;
 }
 
 .subtitle {
