@@ -11,7 +11,7 @@
 }
 
 .thead {
-  @apply bg-primary text-secondary;
+  @apply bg-black text-secondary;
 }
 
 .th {

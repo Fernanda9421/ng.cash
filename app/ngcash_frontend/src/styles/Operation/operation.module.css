@@ -26,3 +26,7 @@
 .button {
   @apply lg:w-1/6 w-4/6 mr-12 flex justify-center py-3 rounded-lg tracking-wide font-semibold cursor-pointer transition ease-in duration-200 my-4 mx-0 bg-secondary hover:bg-black text-white;
 }
+
+.buttonTransaction {
+  @apply flex justify-center py-3 px-3 rounded-lg cursor-pointer transition ease-in duration-200 bg-black hover:bg-secondary text-white;
+}
