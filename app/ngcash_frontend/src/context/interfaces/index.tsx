@@ -19,6 +19,26 @@ export interface IDataCashIn {
   value: number,
 };
 
+export interface ITransaction {
+  id: number;
+  value: number;
+  debitedAccountId: number;
+  creditedAccountId: number;
+  createdAt: string;
+  creditedAccount: {
+    id: number;
+    user: {
+      username: string
+    }
+  };
+  debitedAccount: {
+    id: number;
+    user: {
+      username: string;
+    }
+  };
+};
+
 export interface authContextType {
   infoUser: ComponentState,
   setInfoUser: Dispatch<SetStateAction<ComponentState>>,
@@ -29,5 +49,9 @@ export interface authContextType {
   error: string,
   setError: Dispatch<SetStateAction<string>>,
   dataCashIn: IDataCashIn,
-  setDataCashIn: Dispatch<SetStateAction<IDataCashIn>>
+  setDataCashIn: Dispatch<SetStateAction<IDataCashIn>>,
+  isFiltered: boolean,
+  setIsFiltered: Dispatch<SetStateAction<boolean>>,
+  transactions: ITransaction[] | [],
+  setTransactions: Dispatch<SetStateAction<ITransaction[] | []>>
 };

@@ -15,9 +15,7 @@ const AppProvider: FunctionComponent<Props> = ({ children }) => {
   });
 
   const [error, setError] = useState('');
-
   const [isFiltered, setIsFiltered] = useState(false);
-
   const [transactions, setTransactions] = useState([] as ITransaction[] | []);
 
   const onChange = (

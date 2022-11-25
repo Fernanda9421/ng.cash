@@ -15,6 +15,10 @@ const authContextDefaultValues:authContextType = {
     value: 0,
   },
   setDataCashIn: () => { },
+  isFiltered: false,
+  setIsFiltered: () => { },
+  transactions: [],
+  setTransactions: () => { },
 };
 
 export const AppContext = createContext<authContextType>(authContextDefaultValues);
