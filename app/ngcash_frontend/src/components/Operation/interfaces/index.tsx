@@ -1,21 +1,21 @@
 export interface ITransaction {
-  id: number,
-  value: number,
-  debitedAccountId: number,
-  creditedAccountId: number,
-  createdAt: string,
+  id: number;
+  value: number;
+  debitedAccountId: number;
+  creditedAccountId: number;
+  createdAt: string;
   creditedAccount: {
-    id: number,
+    id: number;
     user: {
       username: string
     }
-  },
+  };
   debitedAccount: {
-    id: number,
+    id: number;
     user: {
-      username: string
+      username: string;
     }
-  }
+  };
 };
 
 export interface ITableTransaction {
@@ -25,4 +25,9 @@ export interface ITableTransaction {
   head2: string;
   head3: string;
   type: string;
+};
+
+export interface IUser {
+  username: string;
+  id: number;
 };
