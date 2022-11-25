@@ -1,6 +1,6 @@
-import Header from '@/components/Header';
-import Operation from '@/components/Operation';
-import styles from '@/styles/Operation/operation.module.css';
+import Header from '../components/Header';
+import Operation from '../components/Operation';
+import styles from '../styles/Operation/operation.module.css';
 
 const TransferMoney = () => {
   return (

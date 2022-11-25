@@ -1,7 +1,7 @@
 import { FunctionComponent, useEffect, useState } from 'react';
-import styles from '@/styles/Transfer/transfer.module.css';
+import styles from '../../styles/Transfer/transfer.module.css';
 import FormTransfer from './FormTransfer';
-import { storageGetItem } from 'src/utils/localStorage';
+import { storageGetItem } from '../../utils/localStorage';
 
 const Transfer: FunctionComponent = () => {
   const [user, setUser] = useState('');

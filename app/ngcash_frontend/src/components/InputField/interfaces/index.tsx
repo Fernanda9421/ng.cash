@@ -1,6 +1,5 @@
 import { ChangeEventHandler } from 'react';
 import { UseFormRegister } from 'react-hook-form';
-import { IDataCashIn } from 'src/context/interfaces';
 
 export interface IFormInputs {
   username: string,

@@ -1,8 +1,8 @@
-import styles from '@/styles/Transfer/transferStatus.module.css';
+import styles from '../../styles/Transfer/transferStatus.module.css';
 import Image from 'next/image';
 import { useRouter } from 'next/router';
-import { convertDate } from 'src/utils/convertData';
-import { convertValue } from 'src/utils/convertValue';
+import { convertDate } from '../../utils/convertData';
+import { convertValue } from '../../utils/convertValue';
 import Button from '../Button';
 import { ISuccess } from './interfaces';
 import Success from '../../images/success.png';

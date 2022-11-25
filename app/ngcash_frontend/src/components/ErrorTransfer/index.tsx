@@ -1,8 +1,8 @@
 import { useContext } from 'react';
-import styles from '@/styles/Transfer/transferStatus.module.css';
+import styles from '../../styles/Transfer/transferStatus.module.css';
 import { useRouter } from 'next/router';
 import Button from '../Button';
-import { AppContext } from 'src/context/AppContext';
+import { AppContext } from '../../context/AppContext';
 import { IError } from '../SuccessTransfer/interfaces';
 import Image from 'next/image';
 import ErrorImage from '../../images/error.png';

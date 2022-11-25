@@ -2,12 +2,12 @@ import { FunctionComponent, useContext } from 'react';
 import Form from '../Form';
 import { IFormInputs } from '../InputField/interfaces';
 import RegisterImage from '../../images/register.png';
-import styles from '@/styles/Form/heroForm.module.css';
+import styles from '../../styles/Form/heroForm.module.css';
 import HeroForm from '../HeroForm';
-import { requestPost } from 'src/services/requests';
-import { AppContext } from 'src/context/AppContext';
+import { requestPost } from '../../services/requests';
+import { AppContext } from '../../context/AppContext';
 import { useRouter } from 'next/router';
-import { storageSetItem } from 'src/utils/localStorage';
+import { storageSetItem } from '../../utils/localStorage';
 import { Exception } from '../../interfaces/error';
 import { IUser } from '../Login/interfaces';
 

@@ -1,9 +1,9 @@
 import { FunctionComponent, useEffect, useState } from 'react';
-import { storageGetItem } from 'src/utils/localStorage';
-import styles from '@/styles/Operation/operation.module.css';
+import { storageGetItem } from '../../utils/localStorage';
+import styles from '../../styles/Operation/operation.module.css';
 import { useRouter } from 'next/router';
-import { requestGet, setToken } from 'src/services/requests';
-import { Exception } from 'src/interfaces/error';
+import { requestGet, setToken } from '../../services/requests';
+import { Exception } from '../../interfaces/error';
 import TransactionTable from '../TransactionTable';
 import Button from '../Button';
 import { ITransaction } from './interfaces';

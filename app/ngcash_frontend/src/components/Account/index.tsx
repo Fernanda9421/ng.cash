@@ -1,10 +1,9 @@
 import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
-import { Exception } from 'src/interfaces/error';
-import { api, requestGet, setToken } from 'src/services/requests';
-import { storageGetItem } from 'src/utils/localStorage';
-import styles from '@/styles/Account/account.module.css';
-import Link from 'next/link';
+import { Exception } from '../../interfaces/error';
+import { requestGet, setToken } from '../../services/requests';
+import { storageGetItem } from '../../utils/localStorage';
+import styles from '../../styles/Account/account.module.css';
 import Button from '../Button';
 
 const Account = () => {

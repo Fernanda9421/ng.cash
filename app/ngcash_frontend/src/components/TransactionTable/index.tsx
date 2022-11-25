@@ -1,8 +1,8 @@
 import { FunctionComponent, useEffect, useState } from 'react';
-import { storageGetItem } from 'src/utils/localStorage';
-import styles from '@/styles/TransactionTable/transactionTable.module.css';
-import { convertValue } from 'src/utils/convertValue';
-import { convertDate } from 'src/utils/convertData';
+import { storageGetItem } from '../../utils/localStorage';
+import styles from '../../styles/TransactionTable/transactionTable.module.css';
+import { convertValue } from '../../utils/convertValue';
+import { convertDate } from '../../utils/convertData';
 import { ITableTransaction, ITransaction } from '../Operation/interfaces';
 
 const TransactionTable = (

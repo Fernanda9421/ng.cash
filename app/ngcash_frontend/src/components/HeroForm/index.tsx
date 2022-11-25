@@ -1,7 +1,7 @@
 import { FunctionComponent } from 'react';
 import Image from 'next/image';
 import { Props } from './interfaces';
-import styles from '@/styles/Form/heroForm.module.css';
+import styles from '../../styles/Form/heroForm.module.css';
 
 const HeroForm: FunctionComponent<Props> = ({ image, width, height }) => {
   return (

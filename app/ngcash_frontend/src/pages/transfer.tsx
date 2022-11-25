@@ -1,6 +1,6 @@
-import Header from '@/components/Header';
-import Transfer from '@/components/Transfer';
-import styles from '@/styles/Transfer/transfer.module.css';
+import Header from '../components/Header';
+import Transfer from '../components/Transfer';
+import styles from '../styles/Transfer/transfer.module.css';
 
 const TransferMoney = () => {
   return (

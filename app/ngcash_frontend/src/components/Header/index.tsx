@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import { FunctionComponent } from 'react';
 import { FaSignOutAlt } from 'react-icons/fa';
-import styles from '@/styles/Header/header.module.css';
+import styles from '../../styles/Header/header.module.css';
 
 const Header: FunctionComponent = () => {
   return (

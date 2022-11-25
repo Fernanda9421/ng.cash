@@ -1,12 +1,12 @@
 import { FunctionComponent, useContext } from 'react';
-import styles from '@/styles/Form/form.module.css';
+import styles from '../../styles/Form/form.module.css';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { useForm } from 'react-hook-form';
 import InputField from '../InputField';
 import Button from '../Button';
 import { IFormInputs } from '../InputField/interfaces';
-import { userSchema } from 'src/schemas/userSchema';
-import { AppContext } from 'src/context/AppContext';
+import { userSchema } from '../../schemas/userSchema';
+import { AppContext } from '../../context/AppContext';
 import { FaUserAlt, FaLock } from 'react-icons/fa';
 import { Props } from './interfaces';
 import { useRouter } from 'next/router';

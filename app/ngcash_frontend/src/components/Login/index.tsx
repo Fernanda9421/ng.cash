@@ -1,13 +1,13 @@
 import LoginImage from '../../images/login.png';
-import styles from '@/styles/Form/heroForm.module.css';
+import styles from '../../styles/Form/heroForm.module.css';
 import Form from '../Form';
 import { IFormInputs } from '../InputField/interfaces';
 import HeroForm from '../HeroForm';
 import { useContext } from 'react';
-import { AppContext } from 'src/context/AppContext';
-import { requestPost } from 'src/services/requests';
+import { AppContext } from '../../context/AppContext';
+import { requestPost } from '../../services/requests';
 import { useRouter } from 'next/router';
-import { storageSetItem } from 'src/utils/localStorage';
+import { storageSetItem } from '../../utils/localStorage';
 import { IUser } from './interfaces';
 import { Exception } from '../../interfaces/error';
 
