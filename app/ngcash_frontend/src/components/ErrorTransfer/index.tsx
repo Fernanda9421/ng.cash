@@ -16,12 +16,14 @@ const ErrorTransfer:FunctionComponent<IError> = ({ setIsTransactionSuccess }) =>
       <div className={styles.box}>
         <h1 className={styles.title}>Ops! Algo deu errado com sua transferência.</h1>
         <div className={styles.receipt}>
-          <Image
-            src={ErrorImage}
-            alt='error'
-            width={100}
-            height={300}
-          />
+          <div className={styles.image}>
+            <Image
+              src={ErrorImage}
+              alt='error'
+              width={100}
+              height={300}
+            />
+          </div>
           {
             error === 'Invalid fields' ? (
               <p>O nome de usuário informado é inválido</p>

@@ -15,12 +15,14 @@ const SuccessTransfer:FunctionComponent<ISuccess> = ({ user, value, date, setIsT
       <div className={styles.box}>
         <h1 className={styles.title}>Tranferência realizada com sucesso!</h1>
         <div className={styles.receipt}>
-          <Image
-            src={Success}
-            alt='success'
-            width={100}
-            height={300}
-          />
+          <div className={styles.image}>
+            <Image
+              src={Success}
+              alt='success'
+              width={100}
+              height={300}
+            />
+          </div>
           <p className={styles.listItem}>Destinatário <span className={styles.result}>@{user}</span></p>
           <p className={styles.listItem}>Valor <span className={styles.result}>{`R$ ${convertValue(value)}`}</span></p>
           <p className={styles.listItem}>Data da transferência <span className={styles.result}>{convertDate(date)}</span></p>

@@ -15,6 +15,10 @@
   @apply text-xl text-secondary ml-8 my-16;
 }
 
+.filter {
+  @apply flex lg:flex-row flex-col lg:ml-0 ml-8 my-6 h-48 lg:h-auto;
+}
+
 .title {
   @apply text-secondary font-bold text-4xl;
 }
@@ -24,9 +28,9 @@
 }
 
 .button {
-  @apply lg:w-1/6 w-4/6 mr-12 flex justify-center py-3 rounded-lg tracking-wide font-semibold cursor-pointer transition ease-in duration-200 my-4 mx-0 bg-secondary hover:bg-black text-white;
+  @apply lg:w-1/6 w-5/6 mr-12 flex justify-center py-3 rounded-lg tracking-wide font-semibold cursor-pointer transition ease-in duration-200 my-4 mx-0 bg-secondary hover:bg-black text-white;
 }
 
 .buttonTransaction {
-  @apply flex justify-center py-3 px-3 rounded-lg cursor-pointer transition ease-in duration-200 bg-black hover:bg-secondary text-white;
+  @apply flex justify-center py-3 px-3 rounded-lg cursor-pointer transition ease-in duration-200 bg-black hover:bg-secondary text-white lg:w-auto w-60;
 }

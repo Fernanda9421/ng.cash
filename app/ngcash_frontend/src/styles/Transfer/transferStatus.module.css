@@ -1,9 +1,9 @@
 .container {
-  @apply flex flex-col w-4/6 h-3/6;
+  @apply flex flex-col lg:w-4/6 w-4/5 h-3/6;
 }
 
 .box {
-  @apply h-96 flex flex-col justify-evenly p-12;
+  @apply lg:h-96 h-full flex flex-col justify-evenly p-12;
 }
 
 .title {
@@ -11,7 +11,7 @@
 }
 
 .receipt {
-  @apply w-full h-4/6 flex justify-around items-center my-5;
+  @apply w-full lg:h-4/6 h-full flex lg:flex-row flex-col justify-around lg:items-center items-start my-5;
 }
 
 .subtitle {
@@ -26,10 +26,14 @@
   @apply text-black font-thin;
 }
 
+.image {
+  @apply hidden lg:flex;
+}
+
 .buttons {
-  @apply w-full flex justify-around;
+  @apply w-full flex lg:flex-row flex-col justify-around;
 }
 
 .button {
-  @apply w-2/6 mr-12 flex justify-center py-3 rounded-lg tracking-wide font-semibold cursor-pointer transition ease-in duration-200 my-4 mx-0 bg-secondary hover:bg-black text-white;
+  @apply lg:w-2/6 w-full mr-12 flex justify-center py-3 rounded-lg tracking-wide font-semibold cursor-pointer transition ease-in duration-200 my-4 mx-0 bg-secondary hover:bg-black text-white;
 }

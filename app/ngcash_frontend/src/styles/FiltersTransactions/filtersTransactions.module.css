@@ -3,7 +3,7 @@
 }
 
 .boxDateSelected {
-  @apply flex justify-evenly;
+  @apply flex lg:flex-row flex-col justify-evenly;
 }
 
 .date {
@@ -11,7 +11,7 @@
 }
 
 .button {
-  @apply flex justify-center py-3 px-3 rounded-lg cursor-pointer transition ease-in duration-200 bg-black hover:bg-secondary text-white;
+  @apply flex my-8 lg:my-0 lg:w-auto w-60 justify-center py-3 px-3 rounded-lg cursor-pointer transition ease-in duration-200 bg-black hover:bg-secondary text-white;
 }
 
 .inputCalendary {

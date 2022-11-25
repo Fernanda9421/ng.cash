@@ -1,5 +1,5 @@
 .container {
-  @apply w-screen h-screen bg-[url('../../images/background.jpg')] bg-cover bg-no-repeat;
+  @apply w-screen min-h-screen bg-[url('../../images/background.jpg')] bg-cover bg-no-repeat;
 }
 
 .transferContainer {
@@ -12,7 +12,7 @@
 }
 
 .title {
-  @apply text-secondary font-bold text-4xl;
+  @apply mt-10 lg:mt-0 text-secondary font-bold text-4xl;
 }
 
 .inputContainer {

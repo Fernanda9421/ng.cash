@@ -14,7 +14,7 @@ const ShowTransactions:FunctionComponent<PropsShowTransactions> = ({
         <Button className={styles.button} name='Enivados por você' onClick={() => { setStatus('debited'); getAllTransactions(id); }} />
         <Button className={styles.button} name='Enivados para você' onClick={() => { setStatus('credited'); getAllTransactions(id); }} />
       </div>
-      <div className='flex my-6'>
+      <div className={styles.filter}>
         <FiltersTransactions type={type} />
         <Button className={styles.buttonTransaction} name='Todas as transações' onClick={() => getAllTransactions(id)} />
       </div>
