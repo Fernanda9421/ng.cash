@@ -1,4 +1,5 @@
 import { FunctionComponent, useState, ComponentState, Dispatch, SetStateAction } from 'react';
+import { ITransaction } from '../components/Operation/interfaces';
 import { AppContext } from './AppContext';
 import { IDataCashIn, Props, Target } from './interfaces';
 
@@ -14,6 +15,10 @@ const AppProvider: FunctionComponent<Props> = ({ children }) => {
   });
 
   const [error, setError] = useState('');
+
+  const [isFiltered, setIsFiltered] = useState(false);
+
+  const [transactions, setTransactions] = useState([] as ITransaction[] | []);
 
   const onChange = (
     event: { target: Target },
@@ -35,6 +40,10 @@ const AppProvider: FunctionComponent<Props> = ({ children }) => {
     setError,
     dataCashIn,
     setDataCashIn,
+    transactions,
+    setTransactions,
+    isFiltered,
+    setIsFiltered,
   };
 
   return (
