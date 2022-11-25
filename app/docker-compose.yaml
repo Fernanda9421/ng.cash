@@ -1,5 +1,14 @@
 version: '3.9'
 services:
+  frontend:
+    build: ./ngcash_frontend
+    restart: 'on-failure'
+    ports:
+      - 3000:3000
+    container_name: app_frontend
+    command: "npm start"
+    depends_on:
+      - backend
   backend:
     build: ./ngcash_backend
     restart: 'on-failure'
