@@ -6,9 +6,11 @@ import { convertValue } from '../../utils/convertValue';
 import Button from '../Button';
 import { ISuccess } from './interfaces';
 import Success from '../../images/success.png';
-import { FunctionComponent } from 'react';
+import { FunctionComponent, useContext } from 'react';
+import { AppContext } from '../../context/AppContext';
 
 const SuccessTransfer:FunctionComponent<ISuccess> = ({ user, value, date, setIsTransactionSuccess }) => {
+  const { setDataCashIn } = useContext(AppContext);
   const route = useRouter();
   return (
     <div className={styles.container}>
@@ -28,7 +30,7 @@ const SuccessTransfer:FunctionComponent<ISuccess> = ({ user, value, date, setIsT
           <p className={styles.listItem}>Data da transferência <span className={styles.result}>{convertDate(date)}</span></p>
         </div>
         <div className={styles.buttons}>
-          <Button className={styles.button} name='Nova transferência' onClick={ () => setIsTransactionSuccess(false) } />
+          <Button className={styles.button} name='Nova transferência' onClick={ () => { setIsTransactionSuccess(false);  setDataCashIn({ username: '', value: 0.01 }); }} />
           <Button className={styles.button} name='Página principal' onClick={ () => route.push('/account')} />
         </div>
       </div>

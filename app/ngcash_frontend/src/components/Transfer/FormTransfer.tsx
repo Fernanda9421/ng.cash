@@ -1,6 +1,6 @@
 import { yupResolver } from '@hookform/resolvers/yup';
 import { useRouter } from 'next/router';
-import { FunctionComponent, useContext, useState } from 'react';
+import { FunctionComponent, useContext, useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { AppContext } from '../../context/AppContext';
 import { IDataCashIn } from '../../context/interfaces';
@@ -25,7 +25,7 @@ const FormTransfer: FunctionComponent = () => {
     value: 0,
     createdAt: '',
   });
-  const { register, handleSubmit, formState: { errors } } = useForm<IDataCashIn>({
+  const { register, handleSubmit, reset, formState: { errors } } = useForm<IDataCashIn>({
     resolver: yupResolver(cashInSchema),
   });
 
@@ -33,6 +33,7 @@ const FormTransfer: FunctionComponent = () => {
     const { token, id } = storageGetItem('user');
     if (!token) route.push('/');
     setToken(token);
+    reset({ username: '', value: 0.01 });
 
     try {
       const transaction = await requestPost(`/transaction/${id}`, data);

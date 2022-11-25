@@ -12,7 +12,7 @@ import { Props } from './interfaces';
 import { useRouter } from 'next/router';
 
 const Form: FunctionComponent<Props> = ({ onSubmit, content }) => {
-  const { onChange, infoUser, setInfoUser, error } = useContext(AppContext);
+  const { onChange, infoUser, setInfoUser, error, setError } = useContext(AppContext);
   const { register, handleSubmit, formState: { errors } } = useForm<IFormInputs>({
     resolver: yupResolver(userSchema),
   });
@@ -74,7 +74,7 @@ const Form: FunctionComponent<Props> = ({ onSubmit, content }) => {
 
         {
           content === 'Entrar' && (
-            <p className={styles.register}> Não tem conta? <a className={styles.link} onClick={ () => router.push('/register') }>Registrar</a></p>
+            <p className={styles.register}> Não tem conta? <a className={styles.link} onClick={ () => { router.push('/register'); setInfoUser({ username: '', password: '' }); setError(''); } }>Registrar</a></p>
           )
         }
 

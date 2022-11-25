@@ -12,7 +12,7 @@ import { IUser } from './interfaces';
 import { Exception } from '../../interfaces/error';
 
 const Login:FunctionComponent = () => {
-  const { setError } = useContext(AppContext);
+  const { setError, setInfoUser } = useContext(AppContext);
   const route = useRouter();
 
   const onSubmit = async (data:IFormInputs) => {
@@ -23,6 +23,7 @@ const Login:FunctionComponent = () => {
       const { username, id } = user;
       setError('');
       storageSetItem('user', { token, username, id });
+      setInfoUser({ username: '', password: '' });
       route.push('/account');
     } catch (error) {
       const result = (error as Exception).response.data.message;

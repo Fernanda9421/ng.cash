@@ -1,4 +1,4 @@
-import { FunctionComponent, useContext } from 'react';
+import { FunctionComponent, useContext, useEffect } from 'react';
 import styles from '../../styles/Transfer/transferStatus.module.css';
 import { useRouter } from 'next/router';
 import Button from '../Button';
@@ -9,7 +9,7 @@ import ErrorImage from '../../images/error.png';
 
 const ErrorTransfer:FunctionComponent<IError> = ({ setIsTransactionSuccess }) => {
   const route = useRouter();
-  const { error, setError } = useContext(AppContext);
+  const { error, setError, setDataCashIn } = useContext(AppContext);
 
   return (
     <div className={styles.container}>
@@ -33,7 +33,7 @@ const ErrorTransfer:FunctionComponent<IError> = ({ setIsTransactionSuccess }) =>
           }
         </div>
         <div className={styles.buttons}>
-          <Button className={styles.button} name='Nova transferência' onClick={ () => { setError(''); setIsTransactionSuccess(false); } } />
+          <Button className={styles.button} name='Nova transferência' onClick={ () => { setError(''); setIsTransactionSuccess(false); setDataCashIn({ username: '', value: 0.01 }); } } />
           <Button className={styles.button} name='Página principal' onClick={ () => { setError(''); route.push('/account'); } }/>
         </div>
       </div>
