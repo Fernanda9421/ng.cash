@@ -1,0 +1,19 @@
+.container {
+  @apply w-2/5 flex flex-col;
+}
+
+.boxDateSelected {
+  @apply flex justify-evenly;
+}
+
+.date {
+  @apply mr-3 text-secondary font-bold;
+}
+
+.button {
+  @apply flex justify-center py-3 px-3 rounded-lg cursor-pointer transition ease-in duration-200 bg-black hover:bg-secondary text-white;
+}
+
+.inputCalendary {
+  @apply p-2.5 rounded-lg border border-black text-secondary w-48;
+}
