@@ -1,12 +1,12 @@
 import { useRouter } from 'next/router';
-import { useEffect, useState } from 'react';
+import { FunctionComponent, useEffect, useState } from 'react';
 import { Exception } from '../../interfaces/error';
 import { requestGet, setToken } from '../../services/requests';
 import { storageGetItem } from '../../utils/localStorage';
 import styles from '../../styles/Account/account.module.css';
 import Button from '../Button';
 
-const Account = () => {
+const Account:FunctionComponent = () => {
   const route = useRouter();
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [user, setUser] = useState('');
@@ -24,6 +24,7 @@ const Account = () => {
         const account = await requestGet(`/account/${id}`);
         setIsAuthenticated(true);
         setBalance(account.balance);
+        
       } catch (error) {
         const result = (error as Exception).response.data.message;
         console.log(result);
@@ -31,7 +32,7 @@ const Account = () => {
         route.push('/');
       }
     })(); 
-  }, []);
+  }, [route]);
 
   return (
     <div className={styles.presentationContainer}>

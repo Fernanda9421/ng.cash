@@ -6,8 +6,9 @@ import { convertValue } from '../../utils/convertValue';
 import Button from '../Button';
 import { ISuccess } from './interfaces';
 import Success from '../../images/success.png';
+import { FunctionComponent } from 'react';
 
-const SuccessTransfer = ({ user, value, date, setIsTransactionSuccess }:ISuccess) => {
+const SuccessTransfer:FunctionComponent<ISuccess> = ({ user, value, date, setIsTransactionSuccess }) => {
   const route = useRouter();
   return (
     <div className={styles.container}>

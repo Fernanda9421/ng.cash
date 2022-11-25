@@ -1,4 +1,4 @@
-import { useContext } from 'react';
+import { FunctionComponent, useContext } from 'react';
 import styles from '../../styles/Transfer/transferStatus.module.css';
 import { useRouter } from 'next/router';
 import Button from '../Button';
@@ -7,7 +7,7 @@ import { IError } from '../SuccessTransfer/interfaces';
 import Image from 'next/image';
 import ErrorImage from '../../images/error.png';
 
-const ErrorTransfer = ({ setIsTransactionSuccess }:IError) => {
+const ErrorTransfer:FunctionComponent<IError> = ({ setIsTransactionSuccess }) => {
   const route = useRouter();
   const { error, setError } = useContext(AppContext);
 

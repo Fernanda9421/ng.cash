@@ -5,8 +5,8 @@ import { convertValue } from '../../utils/convertValue';
 import { convertDate } from '../../utils/convertData';
 import { ITableTransaction, ITransaction } from '../Operation/interfaces';
 
-const TransactionTable = (
-  {transactions, title, head1, head2, head3, type}:ITableTransaction
+const TransactionTable: FunctionComponent<ITableTransaction> = (
+  {transactions, title, head1, head2, head3, type}
 ) => {
   const [userId, setUserId] = useState(0);
 

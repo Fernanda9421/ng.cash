@@ -3,7 +3,7 @@ import styles from '../../styles/Form/heroForm.module.css';
 import Form from '../Form';
 import { IFormInputs } from '../InputField/interfaces';
 import HeroForm from '../HeroForm';
-import { useContext } from 'react';
+import { FunctionComponent, useContext } from 'react';
 import { AppContext } from '../../context/AppContext';
 import { requestPost } from '../../services/requests';
 import { useRouter } from 'next/router';
@@ -11,7 +11,7 @@ import { storageSetItem } from '../../utils/localStorage';
 import { IUser } from './interfaces';
 import { Exception } from '../../interfaces/error';
 
-const Login = () => {
+const Login:FunctionComponent = () => {
   const { setError } = useContext(AppContext);
   const route = useRouter();
 
