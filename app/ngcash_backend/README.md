@@ -35,7 +35,10 @@
 
 **Docker:**
 - O Docker tem o papel de unir todas as partes e subir o projeto completo com um comando único, via `docker-compose`;
-- Na raíz do projeto, rode o comando `docker-compose -f docker-compose.yaml up --build`.
+- Na raíz do projeto, rode o comando:
+```bash
+ docker-compose -f docker-compose.yaml up --build
+```
 
 **Banco de Dados:**
 > **OBS:** Esses passos só serão necessários caso você não utilize o *Docker*.
@@ -46,6 +49,10 @@
 > **OBS:** Esses passos só serão necessários caso você não utilize o *Docker*.
 - Para rodar localmente, em ambiente de desenvolvimento, é necessário alterar o arquivo `.env.example`, preenchendo os valores das variáveis de ambiente condizentes com o seu ambiente de desenvolvimento. Lembre-se de renomear o arquivo para `.env`.
 - Conta com o script `dev` para rodar a aplicação. Você pode usá-lo em app/ngcash_backend com o comando `npm run dev`;
+
+**Front-end:**
+> **OBS:** Esses passos só serão necessários caso você não utilize o *Docker*.
+- Conta com o script `dev` para rodar a aplicação. Você pode usá-lo em app/ngcash_frontend com o comando `npm run dev`;
 
 ## Testes de integração:
 - Para rodar os testes de integração, basta rodar o comando no terminal:
